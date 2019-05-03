@@ -163,6 +163,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  activerecord
   bootsnap (>= 1.1.0)
   byebug
   dotenv

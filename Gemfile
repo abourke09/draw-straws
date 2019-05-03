@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.5'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2', '>= 5.2.2.1'
 # Use sqlite3 as the database for Active Record
@@ -32,6 +31,7 @@ gem 'active_model_serializers'
 gem 'foreman', '~> 0.82.0'
 gem 'thor'
 gem 'react-rails'
+gem 'activerecord'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
