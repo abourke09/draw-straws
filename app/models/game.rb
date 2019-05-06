@@ -1,4 +1,4 @@
 class Game < ApplicationRecord
-  has_many :players
-  has_many :options, through: :players
+  has_many :options
+  has_many :players, through: :options
 end
