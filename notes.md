@@ -19,32 +19,32 @@ has_many :players, through: :options
 
 To-Dos
 -----------
--Make show pages first
-  -All Games
-  -All Players
+- [ ] Make show pages first
+  - [ ] All Games
+  - [ ] All Players
 
--Make forms for a new game only after the show pages are done
+- [ ] Make forms for a new game only after the show pages are done
 
 
 Components & Containers
 -----------------------
-</Players> (container)
-</PlayerCard>
-</PlayerShow>
+`</Players>` (container)
+`</PlayerCard>`
+`</PlayerShow>`
 
-</Games>  (container)
-</GameCard>
-</GameShow>
+`</Games>`  (container)
+`</GameCard>`
+`</GameShow>`
 
-</OptionCard>
-</NewGame>
+`</OptionCard>`
+`</NewGame>`
 
 
 NavBar & Show URLs
 -------------------
-Home          '/'
-New Game      '/new'
-All Players   '/players'
-All Games     '/games'
-</PlayerShow> '/players/:id'
-</GameShow>   '/games/:id'
+| Home          | '/'           |
+| New Game      | '/new'        |
+| All Players   | '/players'    |
+| All Games     | '/games'      |
+| </PlayerShow> | '/players/:id'|
+| </GameShow>   | '/games/:id'  |
