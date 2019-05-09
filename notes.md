@@ -4,26 +4,17 @@ Notes
 
 Relationships
 -------------
-**Player**: name
+**Player**: name  
+has_many :options  
+has_many :games, through: :options  
 
-has_many :options
+**Option**: description, draw, player_id, game_id  
+belongs_to :player  
+belongs_to :game  
 
-has_many :games, through: :options
-
-
-**Option**: description, draw, player_id, game_id
-
-belongs_to :player
-
-belongs_to :game
-
-
-**Game**: name
-
-has_many :options
-
-has_many :players, through: :options
-
+**Game**: name  
+has_many :options  
+has_many :players, through: :options  
 
 To-Dos
 -----------
