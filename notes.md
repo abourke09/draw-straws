@@ -4,16 +4,24 @@ Notes
 
 Relationships
 -------------
-Player: name
+**Player**: name
+
 has_many :options
+
 has_many :games, through: :options
 
-Option: description, draw, player_id, game_id
+
+**Option**: description, draw, player_id, game_id
+
 belongs_to :player
+
 belongs_to :game
 
-Game: name
+
+**Game**: name
+
 has_many :options
+
 has_many :players, through: :options
 
 
@@ -28,23 +36,27 @@ To-Dos
 
 Components & Containers
 -----------------------
-`</Players>` (container)
-`</PlayerCard>`
-`</PlayerShow>`
+```
+</Players> (container)
+</PlayerCard>
+</PlayerShow>
 
-`</Games>`  (container)
-`</GameCard>`
-`</GameShow>`
+</Games>  (container)
+</GameCard>
+</GameShow>
 
-`</OptionCard>`
-`</NewGame>`
+</OptionCard>
+</NewGame>
+```
 
 
 NavBar & Show URLs
 -------------------
-| Home          | '/'           |
-| New Game      | '/new'        |
-| All Players   | '/players'    |
-| All Games     | '/games'      |
-| </PlayerShow> | '/players/:id'|
-| </GameShow>   | '/games/:id'  |
+| NavBar          | URLs          |
+| --------------- | ------------- |
+| Home            | '/'           |
+| New Game        | '/new'        |
+| All Players     | '/players'    |
+| All Games       | '/games'      |
+| `</PlayerShow>` | '/players/:id'|
+| `</GameShow>`   | '/games/:id'  |
