@@ -1,4 +1,4 @@
-class API::OptionsController < ApplicationController
+class Api::OptionsController < ApplicationController
   def index
     render json: Option.all
   end
