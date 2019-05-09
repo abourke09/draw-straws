@@ -1,3 +1,6 @@
 class OptionSerializer < ActiveModel::Serializer
-  attributes :id, :description, :draw, :player_id, :game_id
+  attributes :id, :description, :draw, :player, :game
+
+  belongs_to :player
+  belongs_to :game
 end
