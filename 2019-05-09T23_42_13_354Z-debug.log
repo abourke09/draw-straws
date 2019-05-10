@@ -1,0 +1,38 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/alicebourke/.nvm/versions/node/v6.11.2/bin/node',
+1 verbose cli   '/Users/alicebourke/.nvm/versions/node/v6.11.2/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@6.9.0
+3 info using node@v6.11.2
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle client@0.1.0~prestart: client@0.1.0
+6 info lifecycle client@0.1.0~start: client@0.1.0
+7 verbose lifecycle client@0.1.0~start: unsafe-perm in lifecycle true
+8 verbose lifecycle client@0.1.0~start: PATH: /Users/alicebourke/.nvm/versions/node/v6.11.2/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/client/node_modules/.bin:/Users/alicebourke/.rvm/gems/ruby-2.4.5/bin:/Users/alicebourke/.rvm/gems/ruby-2.4.5@global/bin:/Users/alicebourke/.rvm/rubies/ruby-2.4.5/bin:/Users/alicebourke/.rvm/bin:/Users/alicebourke/.nvm/versions/node/v6.11.2/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/local/bin :/bin:/usr/sbin:/sbinr
+9 verbose lifecycle client@0.1.0~start: CWD: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/client
+10 silly lifecycle client@0.1.0~start: Args: [ '-c', 'react-scripts start' ]
+11 silly lifecycle client@0.1.0~start: Returned: code: 1  signal: null
+12 info lifecycle client@0.1.0~start: Failed to exec start script
+13 verbose stack Error: client@0.1.0 start: `react-scripts start`
+13 verbose stack Exit status 1
+13 verbose stack     at EventEmitter.<anonymous> (/Users/alicebourke/.nvm/versions/node/v6.11.2/lib/node_modules/npm/node_modules/npm-lifecycle/index.js:301:16)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at EventEmitter.emit (events.js:191:7)
+13 verbose stack     at ChildProcess.<anonymous> (/Users/alicebourke/.nvm/versions/node/v6.11.2/lib/node_modules/npm/node_modules/npm-lifecycle/lib/spawn.js:55:14)
+13 verbose stack     at emitTwo (events.js:106:13)
+13 verbose stack     at ChildProcess.emit (events.js:191:7)
+13 verbose stack     at maybeClose (internal/child_process.js:891:16)
+13 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+14 verbose pkgid client@0.1.0
+15 verbose cwd /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/client
+16 verbose Darwin 18.5.0
+17 verbose argv "/Users/alicebourke/.nvm/versions/node/v6.11.2/bin/node" "/Users/alicebourke/.nvm/versions/node/v6.11.2/bin/npm" "start"
+18 verbose node v6.11.2
+19 verbose npm  v6.9.0
+20 error code ELIFECYCLE
+21 error errno 1
+22 error client@0.1.0 start: `react-scripts start`
+22 error Exit status 1
+23 error Failed at the client@0.1.0 start script.
+23 error This is probably not a problem with npm. There is likely additional logging output above.
+24 verbose exit [ 1, true ]
