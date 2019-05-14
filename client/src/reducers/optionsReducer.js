@@ -22,7 +22,7 @@ export default function optionsReducer(state = initialState, action) {
     //   idx = all.findIndex(todo => todo.id === action.payload.todo_id)
     //   all[idx].sub_todos = all[idx].sub_todos.filter(subTodo => subTodo.id !== action.payload.id)
 
-      return { ...state, all }
+    //  return { ...state, all }
     default: return state
   }
 }
