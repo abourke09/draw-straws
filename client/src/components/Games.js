@@ -1,9 +1,9 @@
 import React from 'react'
 
-const AllGames = () => (
-  <div className="All Games">
+const Games = () => (
+  <div className="games">
     <h1>All Games should be listed here</h1>
   </div>
   )
 
-export default AllGames;
+export default Games;
