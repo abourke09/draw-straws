@@ -4,16 +4,18 @@ import Card from 'react-bootstrap/Card'
 
 const PlayerCard = (props) => {
   const url = `/players/${props.player.id}`
+
+  const gameNames = props.player.games.map( (game, index) => <li key="index">{game.name}</li> )
+
     return (
-      <Card style={{ width: '18rem' }}>
+      <Card bg="light" style={{ width: '18rem' }}>
+        <Card.Header as="h4">{props.player.name}</Card.Header>
         <Card.Body>
-          <Card.Title>{props.player.name}</Card.Title>
-          <Card.Subtitle className="mb-2 text-muted"># Games Played: {props.player.games.length}</Card.Subtitle>
-          <Card.Text>
-            {props.player.name} has played {props.player.games.length} game(s)
+          <Card.Subtitle>Number of Games Played: {props.player.games.length}</Card.Subtitle>
+          <Card.Text className="mb-2 text-muted">
+            <ol>{gameNames}</ol>
           </Card.Text>
-          <Card.Link href= {url} >Player Show Link</Card.Link>
-          <Card.Link href="#">Another Link</Card.Link>
+          <Card.Link href= {url} >View Player's Page</Card.Link>
         </Card.Body>
       </Card>
       )
