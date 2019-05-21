@@ -29,14 +29,4 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     players: state.players.all
-//   }
-// }
-
-// const mapDispatchToProps = dispatch => bindActionCreators({
-//   fetchPlayers
-// }, dispatch)
-
 export default connect(null, {fetchPlayers})(App)
