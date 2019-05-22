@@ -1,9 +1,27 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import GameCard from '../components/GameCard'
+import CardDeck from 'react-bootstrap/CardDeck'
 
-const Games = () => (
-  <div className="games">
-    <h1>All Games should be listed here</h1>
-  </div>
-  )
+class Games extends Component {
 
-export default Games;
+  render() {
+    const { games } = this.props
+
+    return (
+      <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
+        {this.props.games.map((game, index) =>
+           <GameCard game={game} key={index}/> )
+        }
+      </CardDeck>
+      );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return ({
+      games: state.games.all,
+    })
+}
+
+export default connect(mapStateToProps)(Games);
