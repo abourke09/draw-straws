@@ -5,13 +5,14 @@ import Home from './components/Home';
 import GameForm from './components/GameForm';
 import Players from './components/Players';
 import Games from './components/Games';
-//import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux';
 import { fetchPlayers } from './actions/players'
+import { fetchGames } from './actions/games'
 
 class App extends Component {
   componentDidMount(){
     this.props.fetchPlayers()
+    this.props.fetchGames()
   }
 
   render() {
@@ -29,4 +30,6 @@ class App extends Component {
   }
 }
 
-export default connect(null, {fetchPlayers})(App)
+
+
+export default connect(null, {fetchPlayers, fetchGames})(App)
