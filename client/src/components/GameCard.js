@@ -1,10 +1,11 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
+import ListGroup from 'react-bootstrap/ListGroup'
 
 const GameCard = (props) => {
   const url = `/games/${props.game.id}`
 
-  const gameOptions = props.game.options.map( (option, index) => <li key="index">{option.description}</li> )
+  const gameOptions = props.game.options.map( (option, index) => <ListGroup.Item key={index}>{option.description}</ListGroup.Item> )
 
     return (
       <Card bg="light" style={ {margin: '25px', flex: '0 1 24%'} }>
@@ -15,9 +16,7 @@ const GameCard = (props) => {
           <br></br>
           <Card.Subtitle>Options:</Card.Subtitle>
 
-          <Card.Text className="mb-2 text-muted">
-            <ol>{gameOptions}</ol>
-          </Card.Text>
+          <ListGroup className="mb-2 text-muted">{gameOptions}</ListGroup>
 
           <Card.Link href= {url} >View Game's Page</Card.Link>
         </Card.Body>
