@@ -6,12 +6,11 @@ import CardDeck from 'react-bootstrap/CardDeck'
 class Games extends Component {
 
   render() {
-    const { games } = this.props
 
     return (
       <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
-        {this.props.games.map((game, index) =>
-           <GameCard game={game} key={index}/> )
+        {this.props.games.map((game) =>
+           <GameCard game={game} key={game.id}/> )
         }
       </CardDeck>
       );

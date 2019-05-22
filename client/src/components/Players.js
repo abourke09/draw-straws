@@ -6,17 +6,18 @@ import CardDeck from 'react-bootstrap/CardDeck'
 class Players extends Component {
 
   render() {
-    const { players } = this.props
 
     return (
       <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
-        {this.props.players.map((player, index) =>
-           <PlayerCard player={player} key={index}/> )
-        }
+        {this.props.players.map((player) =>
+          <PlayerCard player={player} key={player.id} />
+        )}
       </CardDeck>
       );
   }
 }
+
+
 
 const mapStateToProps = (state) => {
   return ({
