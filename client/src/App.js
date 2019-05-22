@@ -5,6 +5,8 @@ import Home from './components/Home';
 import GameForm from './components/GameForm';
 import Players from './components/Players';
 import Games from './components/Games';
+import PlayerShow from './components/PlayerShow';
+import GameShow from './components/GameShow';
 import { connect } from 'react-redux';
 import { fetchPlayers } from './actions/players'
 import { fetchGames } from './actions/games'
@@ -24,6 +26,8 @@ class App extends Component {
           <Route exact path="/games/new" component={GameForm}/>
           <Route exact path="/players" component={Players}/>
           <Route exact path="/games" component={Games}/>
+          <Route path="/players/:id" component={PlayerShow} />
+          <Route path="/games/:id" component={GameShow} />
         </Router>
       </div>
     )
