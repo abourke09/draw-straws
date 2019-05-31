@@ -23,7 +23,7 @@ class App extends Component {
         <Router>
           <MyNavbar/>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/games/new" component={GameForm}/>
+          <Route exact path="/new" component={GameForm}/>
           <Route exact path="/players" component={Players}/>
           <Route exact path="/games" component={Games}/>
           <Route path="/players/:id" component={PlayerShow} />

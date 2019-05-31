@@ -11,7 +11,7 @@ class myNavbar extends Component {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/games/new">New</Nav.Link>
+              <Nav.Link href="/new">New</Nav.Link>
               <Nav.Link href="/players">All Players</Nav.Link>
               <Nav.Link href="/games">All Games</Nav.Link>
             </Nav>
