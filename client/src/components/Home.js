@@ -2,7 +2,7 @@ import React from 'react'
 
 const Home = () => (
   <div className="Home">
-    <h1>Welcome to Draw Straws!</h1>
+    <h1 align= 'center'>Welcome to Draw Straws!</h1>
     <p>How to play: Draw Straws is a selection game that helps groups assign specific tasks to individuals.
     To play, give the game a title and enter each player's name, then list each possible option for the game.
     For example, a group of roommates could name their game House Chores and list options such as 1)Take out the trash,

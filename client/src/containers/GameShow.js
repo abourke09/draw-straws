@@ -19,7 +19,7 @@ class GameShow extends Component {
 console.log("in render: ", )
     return (
       <div>
-        <h1>Game: {this.props.game.name}</h1>
+        <h1 align= 'center'>Game: {this.props.game.name}</h1>
 
         <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
           {this.props.game.options&&this.props.game.options.map((option) =>

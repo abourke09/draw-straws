@@ -21,7 +21,7 @@ class PlayerShow extends Component {
   render() {
     return (
       <div>
-        <h1>Player: {this.props.player.name}</h1>
+        <h1 align= 'center'>Player: {this.props.player.name}</h1>
         <Container>
           <CardDeck style = { {display: 'flex', flexDirection: 'column', alignItems: 'baseline' } }>
             {this.props.player.options&&this.props.player.options.map((option) =>
