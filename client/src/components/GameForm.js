@@ -1,9 +1,34 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
-const GameForm = () => (
-  <div className="game form">
-    <h1>The new game form should be listed here</h1>
-  </div>
-  )
+class GameForm extends Component {
+
+  render() {
+    return(
+      <div className="gameForm">
+        <h1 align= 'center'>Play A New Game</h1>
+        <Form style = { { margin: '0 auto', width: '300px' } }>
+          <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Label>Game Name:</Form.Label>
+            <Form.Control/>
+          </Form.Group>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+            <Form.Label>Number of Players:</Form.Label>
+            <Form.Control as="select">
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
+    )
+  }
+}
 
 export default GameForm;
