@@ -20,14 +20,11 @@ class PlayerShow extends Component {
       <div>
         <h1>Player: {this.props.player.name}</h1>
 
-
-{/*
         <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
-          {this.props.player.options.map((option) =>
+          {this.props.player.options&&this.props.player.options.map((option) =>
              <OptionCard option={option} key={option.id}/> )
           }
         </CardDeck>
-*/}
 
       </div>
     );
