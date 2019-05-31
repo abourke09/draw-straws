@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPlayer } from '../actions/players';
 import OptionCard from '../components/OptionCard'
+import GameCard from '../components/GameCard'
 import CardDeck from 'react-bootstrap/CardDeck'
+import { Col, Container, Row } from 'react-bootstrap/'
+import Card from 'react-bootstrap/Card'
 
 class PlayerShow extends Component {
 
@@ -19,12 +22,45 @@ class PlayerShow extends Component {
     return (
       <div>
         <h1>Player: {this.props.player.name}</h1>
+        <Container>
+          <CardDeck style = { {display: 'flex', flexDirection: 'column', alignItems: 'baseline' } }>
+            {this.props.player.options&&this.props.player.options.map((option) =>
+                <Row>
+                  <Col>
+                    <Card bg="light" style={ {
+                    //  fontSize: '30',
+                      justifyContent: 'center',
+                      margin: '25px',
+                      flex: '0 1 24%',
+                      display: 'flex',
+                      width: '200px',
+                      height: '120px'
+                    } }>
+                      <Card.Link href= {`/games/${option.game.id}`}>{option.game.name}</Card.Link>
+                    </Card>
+                  </Col>
 
-        <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
-          {this.props.player.options&&this.props.player.options.map((option) =>
-             <OptionCard option={option} key={option.id}/> )
-          }
-        </CardDeck>
+                  <Col>
+                    <h1 style={ {
+                    //  fontSize: '30',
+                      justifyContent: 'center',
+                      margin: '25px',
+                      flex: '0 1 24%',
+                      display: 'flex',
+                      width: '200px',
+                      height: '120px'
+                    } }> -> </h1>
+                  </Col>
+
+                  <Col>
+                    <OptionCard option={option} key={option.id}/>
+                  </Col>
+
+                </Row>
+              )
+            }
+          </CardDeck>
+        </Container>
 
       </div>
     );
@@ -34,7 +70,6 @@ class PlayerShow extends Component {
 const mapStateToProps = (state) => {
   return ({
       player: state.players.current,
-    //  options: state.players.current.options
     })
 }
 
