@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPlayer } from '../actions/players';
 import OptionCard from '../components/OptionCard'
-import GameCard from '../components/GameCard'
 import CardDeck from 'react-bootstrap/CardDeck'
 import { Col, Container, Row } from 'react-bootstrap/'
 import Card from 'react-bootstrap/Card'
