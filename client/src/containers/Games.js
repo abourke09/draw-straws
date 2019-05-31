@@ -8,11 +8,14 @@ class Games extends Component {
   render() {
 
     return (
-      <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
-        {this.props.games.map((game) =>
-           <GameCard game={game} key={game.id}/> )
-        }
-      </CardDeck>
+      <div>
+        <h1 align= 'center'>All Games</h1>
+        <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
+          {this.props.games.map((game) =>
+             <GameCard game={game} key={game.id}/> )
+          }
+        </CardDeck>
+      </div>
       );
   }
 }

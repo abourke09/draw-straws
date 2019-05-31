@@ -8,11 +8,14 @@ class Players extends Component {
   render() {
 
     return (
-      <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
-        {this.props.players.map((player) =>
-          <PlayerCard player={player} key={player.id} />
-        )}
-      </CardDeck>
+      <div>
+        <h1 align= 'center'>All Players</h1>
+        <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
+          {this.props.players.map((player) =>
+            <PlayerCard player={player} key={player.id} />
+          )}
+        </CardDeck>
+      </div>
       );
   }
 }
