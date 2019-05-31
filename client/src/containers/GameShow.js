@@ -16,18 +16,16 @@ class GameShow extends Component {
   }
 
   render() {
+console.log("in render: ", )
     return (
       <div>
         <h1>Game: {this.props.game.name}</h1>
 
-
-{/*
         <CardDeck style = { {display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' } }>
-          {this.props.game.options.map((option) =>
+          {this.props.game.options&&this.props.game.options.map((option) =>
              <OptionCard option={option} key={option.id}/> )
           }
         </CardDeck>
-*/}
 
       </div>
     );
@@ -35,9 +33,10 @@ class GameShow extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log("in mapStateToProps: ", state)
+
   return ({
       game: state.games.current,
-    //  options: state.games.current.options
     })
 }
 
