@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyNavbar from './components/Navbar'
 import Home from './components/Home';
 import GameForm from './components/GameForm';
-import Players from './components/Players';
-import Games from './components/Games';
-import PlayerShow from './components/PlayerShow';
-import GameShow from './components/GameShow';
+import Players from './containers/Players';
+import Games from './containers/Games';
+import PlayerShow from './containers/PlayerShow';
+import GameShow from './containers/GameShow';
 import { connect } from 'react-redux';
 import { fetchPlayers } from './actions/players'
 import { fetchGames } from './actions/games'
