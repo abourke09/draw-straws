@@ -16,7 +16,6 @@ class GameShow extends Component {
   }
 
   render() {
-console.log("in render: ", )
     return (
       <div>
         <h1 align= 'center'>Game: {this.props.game.name}</h1>
@@ -33,7 +32,6 @@ console.log("in render: ", )
 }
 
 const mapStateToProps = (state) => {
-  console.log("in mapStateToProps: ", state)
 
   return ({
       game: state.games.current,
