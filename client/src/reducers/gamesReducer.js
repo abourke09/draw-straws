@@ -1,6 +1,6 @@
 const initialState = {
-  current: {},
-  all: []
+  all: [],
+  current: {}
 }
 
 export default function gamesReducer(state = initialState, action) {
