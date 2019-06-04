@@ -18,26 +18,37 @@ has_many :players, through: :options
 
 To-Dos
 -----------
-- [ ] Make show pages first
-  - [ ] All Games
-  - [ ] All Players
+- [X] Make show pages first
+  - [X] All Games
+  - [X] All Players
+  - [X] Individual Game
+  - [X] Individual Player
 
-- [ ] Make forms for a new game only after the show pages are done
+- [ ] Make form(s) for a new game
+  - [ ] First form takes in the Game name and number of Players
+  - [ ] When first form submits, data is saved to state (?) and second form replaces the first on the DOM
+  - [ ] Second form takes in the Players names and Option descriptions
+  - [ ] When second form submits, it is replaced on the DOM with a list of the Players/Options and a big "Draw!" button.
+  - [ ] The "Draw!" button will add text to the DOM alerting each subsequent user that it's their turn, allowing them to select and option when it's their turn.
+  - [ ] Saved the Game/Options/Players to the API database only after all the draws are made (?)
+  - [ ] Once all draws are made and the data is saved to the API, the DOM redirects to the GameShow page 
 
 
 Components & Containers
 -----------------------
 ```
-</Players> (container)
+</Players> (container, holds PlayerCard)
 </PlayerCard>
-</PlayerShow>
+</PlayerShow> (container, holds OptionCard and game names)
 
-</Games>  (container)
+</Games>  (container, holds GameCard)
 </GameCard>
-</GameShow>
+</GameShow> (container, holds OptionCard)
 
 </OptionCard>
-</NewGame>
+</Home>
+</Navbar>
+</GameForm>
 ```
 
 
