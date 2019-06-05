@@ -1,9 +1,9 @@
 const initialState = {
   //no ID for Game/Player/Option because nothing is saved to the database yet
-  name: "",
+  gameName: "",
   playersCount: 0,
-  players: [],
-  options: []
+  playersArray: [],
+  optionsArray: []
 }
 
 export default function newGameReducer(state = initialState, action) {
