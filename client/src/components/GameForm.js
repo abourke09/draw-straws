@@ -3,6 +3,33 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
 class GameForm extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "",
+      playersCount: null,
+      players: [],
+      options: []
+    };
+  }
+
+  handleChange(event) {
+    this.setState({
+      event.target.name: event.target.value
+    });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log("New Game Details: ", this.state)
+  //  this.props.addNewGame(this.state)
+    this.setState({
+      name: "",
+      playersCount: null,
+      players: [],
+      options: []
+    })
+  }
 
 // Fisher-Yates shuffle: https://javascript.info/task/shuffle
   shuffleDraw(array) {
