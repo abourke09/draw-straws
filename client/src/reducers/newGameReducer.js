@@ -1,5 +1,6 @@
 const initialState = {
   //no ID for Game/Player/Option because nothing is saved to the database yet
+  firstFormSubmitted: false,
   gameName: "",
   playersCount: 0,
   playersArray: [],
@@ -8,6 +9,16 @@ const initialState = {
 
 export default function newGameReducer(state = initialState, action) {
   switch(action.type) {
+    case 'TOGGLE_FIRST_FORM_SUBMITTED' :
+      return { ...state, firstFormSubmitted: action.payload }
+    case 'ADD_GAME_NAME' :
+      return { ...state, gameName: action.name}
+    case 'ADD_PLAYERS_COUNT' :
+      return { ...state, playersCount: action.count }
+    case 'ADD_PLAYERS_ARRAY' :
+      return { ...state, playersArray: action.players }
+    case 'ADD_OPTIONS_ARRAY' :
+      return { ...state, optionsArray: action.options }
     // case 'FETCH_TODOS':
     //   return { ...state, all: action.payload }
     // case 'CREATE_TODO':
