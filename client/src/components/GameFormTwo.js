@@ -6,6 +6,9 @@ import Button from 'react-bootstrap/Button'
 class GameFormTwo extends Component {
 
   render() {
+      if (this.props.currentStep !== 2) { 
+        return null
+      }
 
       return(
 
@@ -13,7 +16,6 @@ class GameFormTwo extends Component {
         <h1 align= 'center'>New Game: {this.props.gameName} Form Two!</h1>
         <p>There should be {this.props.playersCount} options/players textboxes</p>
 
-        <Form onSubmit={this.props.handleSubmitFormTwo} style = { { margin: '0 auto', width: '300px' } }>
           <Form.Group controlId="gameName">
             <Form.Label>Players' Names:</Form.Label>
             <Form.Control
@@ -38,7 +40,6 @@ class GameFormTwo extends Component {
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Form>
       </div>
     )
   }
