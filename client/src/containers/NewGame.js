@@ -8,18 +8,87 @@ class NewGame extends Component {
     super(props);
 
     this.state = {
+      currentStep: 1,
       gameName: "",
       playersCount: 2,
       playersArray: [],
       optionsArray: []
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this._next = this._next.bind(this);
+    this._prev = this._prev.bind(this);
   }
 
-  // FORM ONE- sets gameName and playersCount
-  handleChangeFormOne = event => {
+  // handleChange(event) {
+  //   const {name, value} = event.target
+  //   this.setState({
+  //     [name]: value
+  //   })
+  // }
+
+  handleChange = event => {
     this.setState({
       [event.target.id]: event.target.value
     });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { gameName, playersCount } = this.state
+    console.log("This.state.gameName: ", gameName )
+    console.log("This.state.playersCount: ", playersCount )
+    console.log("Event: ", event )
+  }
+
+  _next() {
+    let currentStep = this.state.currentStep
+    // If the current step is 1 or 2, then add one on "next" button click
+    currentStep = currentStep >= 2? 3: currentStep + 1
+    this.setState({
+      currentStep: currentStep
+    })
+  }
+
+  _prev() {
+    let currentStep = this.state.currentStep
+    // If the current step is 2 or 3, then subtract one on "previous" button click
+    currentStep = currentStep <= 1? 1: currentStep - 1
+    this.setState({
+      currentStep: currentStep
+    })
+  }
+
+  get previousButton(){
+    let currentStep = this.state.currentStep;
+    // If the current step is not 1, then render the "previous" button
+    if(currentStep !==1){
+      return (
+        <button
+          className="btn btn-secondary"
+          type="button" onClick={this._prev}>
+        Previous
+        </button>
+      )
+    }
+    // ...else return nothing
+    return null;
+  }
+
+  get nextButton(){
+    let currentStep = this.state.currentStep;
+    // If the current step is not 2, then render the "next" button
+    if(currentStep <2){
+      return (
+        <button
+          className="btn btn-primary float-right"
+          type="button" onClick={this._next}>
+        Next
+        </button>
+      )
+    }
+    // ...else render nothing
+    return null;
   }
 
   handleSubmitFormOne = event => {
@@ -32,25 +101,10 @@ class NewGame extends Component {
       gameName: "",
       playersCount: 2,
     })
-  // How do I render a new div/component here to show FormTwo?
-  //this.forceUpdate();
-  }
-
-  // componentDidMount() {
-  //   this.forceUpdate()
-  // }
-  
-  // FORM TWO- sets playersArray and optionsArray
-  handleChangeFormTwo = event => {
-    console.log("Event from handleChangeFormTwo: ", event)
-    this.setState({
-      [event.target.id]: event.target.value
-    });
   }
 
   handleSubmitFormTwo = event => {
     event.preventDefault();
-    console.log("this.state from handleSubmitFormTwo: ", this.state)
   //  this.props.toggleFirstFormSubmitted(true)
    this.props.addPlayersArray(this.state.playersArray)
    this.props.addOptionsArray(this.state.optionsArray)
@@ -62,8 +116,8 @@ class NewGame extends Component {
 
 
   // Fisher-Yates shuffle: https://javascript.info/task/shuffle
+  // Let array = ["Annie", "Grace", "Lindsay"];
     shuffleDraw(array) {
-    //  let array = ["Annie", "Grace", "Lindsay"];
       for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
@@ -72,19 +126,34 @@ class NewGame extends Component {
     }
 
   render() {
-  //  const form = this.props.firstFormSubmitted ? <GameFormTwo handleSubmitFormTwo = {this.handleSubmitFormTwo} handleChangeFormTwo = {this.handleChangeFormTwo}/> :<GameFormOne handleSubmitFormOne = {this.handleSubmitFormOne} handleChangeFormOne = {this.handleChangeFormOne}/>
 
     return(
-      <div>
-      {this.props.firstFormSubmitted ? <GameFormTwo handleSubmitFormTwo = {this.handleSubmitFormTwo} handleChangeFormTwo = {this.handleChangeFormTwo}/> :<GameFormOne handleSubmitFormOne = {this.handleSubmitFormOne} handleChangeFormOne = {this.handleChangeFormOne}/> }
-      <GameFormTwo handleSubmitFormTwo = {this.handleSubmitFormTwo} handleChangeFormTwo = {this.handleChangeFormTwo}/>
-      </div>
+      <React.Fragment>
+      <h1 align= 'center'>Play A New Game <em>(Step #{this.state.currentStep})</em></h1>
+      <form onSubmit={this.handleSubmit} style = { { margin: '0 auto', width: '300px' } }>
+
+        <GameFormOne
+          currentStep={this.state.currentStep}
+          handleChange={this.handleChange}
+          gameName={this.state.gameName}
+          playersCount={this.state.playersCount}
+        />
+        <GameFormTwo
+          currentStep={this.state.currentStep}
+          handleChange={this.handleChange}
+          playersArray={this.state.playersArray}
+          optionsArray={this.state.optionsArray}
+        />
+
+        {this.previousButton}
+        {this.nextButton}
+      </form>
+      </React.Fragment>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log("firstFormSubmitted: ", state.firstFormSubmitted )
   return {
     firstFormSubmitted: state.firstFormSubmitted,
     gameName: state.gameName,
@@ -103,16 +172,3 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewGame);
-
-// if (this.props.firstFormSubmitted) {
-//   const form = <GameFormTwo
-//     gameName = {this.props.gameName}
-//     playersCount = {this.props.playersCount}
-//   />
-// } else {
-//   const form = <GameFormOne
-//     toggleFirstFormSubmitted = {this.props.toggleFirstFormSubmitted}
-//     addGameName = {this.props.addGameName}
-//     addPlayersCount = {this.props.addPlayersCount}
-//   />
-// }
