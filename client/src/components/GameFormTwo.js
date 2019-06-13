@@ -1,55 +1,51 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
 
 class GameFormTwo extends Component {
 
   render() {
-      if (this.props.currentStep !== 2) { 
+      if (this.props.currentStep !== 2) {
         return null
       }
 
+      const playersContainer = []
+      const optionsContainer = []
+      let i = 0;
+
+      while (i <= (this.props.playersCount - 1)) {
+        let player = this.props.playersArray[i]
+        let option = this.props.optionsArray[i]
+        let idPlayer = "playersArray[" + i + "].name"
+        let idOption = "optionsArray[" + i + "].description"
+
+        playersContainer.push(<><label htmlFor="playersArray[i]">Player {i+1} Name:</label>
+        <input
+          className="form-control"
+          id={idPlayer}
+          name={player.name}
+          type="text"
+          value= {player.name}
+          onChange={this.props.handleChange}
+        /></>);
+
+        optionsContainer.push(<><label htmlFor="optionsArray[i]">Option {i+1}:</label>
+        <input
+          className="form-control"
+          id={idOption}
+          name={option.description}
+          type="text"
+          value= {option.description}
+          onChange={this.props.handleChange}
+        /></>);
+        i++;
+      }
+
       return(
-
-      <div className="gameForm">
-        <h1 align= 'center'>New Game: {this.props.gameName} Form Two!</h1>
-        <p>There should be {this.props.playersCount} options/players textboxes</p>
-
-          <Form.Group controlId="gameName">
-            <Form.Label>Players' Names:</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.props.gameName}
-              onChange={this.props.handleChangeFormTwo}
-            />
-          </Form.Group>
-          <Form.Group controlId="playersCount">
-            <Form.Label>Options:</Form.Label>
-            <Form.Control
-              type="text"
-              value={this.props.optionsArray}
-              onChange={this.props.handleChangeFormTwo}
-            >
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Form.Control>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-      </div>
+        <div className="form-group">
+          {playersContainer}
+          {optionsContainer}
+        </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    gameName: state.gameName,
-    playersCount: state.playersCount
-  }
-}
-
-export default connect(mapStateToProps)(GameFormTwo);
+export default GameFormTwo;
