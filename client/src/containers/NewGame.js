@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 import GameFormOne from '../components/GameFormOne'
 import GameFormTwo from '../components/GameFormTwo'
+import GameFormThree from '../components/GameFormThree'
 
 class NewGame extends Component {
   constructor(props) {
@@ -11,21 +12,26 @@ class NewGame extends Component {
       currentStep: 1,
       gameName: "",
       playersCount: 2,
-      playersArray: [],
-      optionsArray: []
+      playersArray: [
+        {name: "Jack"},
+        {name: "Jill"},
+        {name: ""},
+        {name: ""},
+        {name: ""}
+      ],
+      optionsArray: [
+        {description: "Walk up the hill"},
+        {description: "Run down the hill"},
+        {description: ""},
+        {description: ""},
+        {description: ""}
+      ]
     };
 
     this.handleChange = this.handleChange.bind(this);
     this._next = this._next.bind(this);
     this._prev = this._prev.bind(this);
   }
-
-  // handleChange(event) {
-  //   const {name, value} = event.target
-  //   this.setState({
-  //     [name]: value
-  //   })
-  // }
 
   handleChange = event => {
     this.setState({
@@ -44,7 +50,7 @@ class NewGame extends Component {
   _next() {
     let currentStep = this.state.currentStep
     // If the current step is 1 or 2, then add one on "next" button click
-    currentStep = currentStep >= 2? 3: currentStep + 1
+    currentStep = currentStep >= 10? 3: currentStep + 1
     this.setState({
       currentStep: currentStep
     })
@@ -78,7 +84,7 @@ class NewGame extends Component {
   get nextButton(){
     let currentStep = this.state.currentStep;
     // If the current step is not 2, then render the "next" button
-    if(currentStep <2){
+    if(currentStep <4){
       return (
         <button
           className="btn btn-primary float-right"
@@ -91,30 +97,6 @@ class NewGame extends Component {
     return null;
   }
 
-  handleSubmitFormOne = event => {
-    event.preventDefault();
-    this.props.toggleFirstFormSubmitted(true)
-    this.props.addGameName(this.state.gameName)
-    this.props.addPlayersCount(this.state.playersCount)
-
-    this.setState({
-      gameName: "",
-      playersCount: 2,
-    })
-  }
-
-  handleSubmitFormTwo = event => {
-    event.preventDefault();
-  //  this.props.toggleFirstFormSubmitted(true)
-   this.props.addPlayersArray(this.state.playersArray)
-   this.props.addOptionsArray(this.state.optionsArray)
-    this.setState({
-      playersArray: [],
-      optionsArray: []
-    })
-  }
-
-
   // Fisher-Yates shuffle: https://javascript.info/task/shuffle
   // Let array = ["Annie", "Grace", "Lindsay"];
     shuffleDraw(array) {
@@ -126,10 +108,10 @@ class NewGame extends Component {
     }
 
   render() {
-
     return(
       <React.Fragment>
       <h1 align= 'center'>Play A New Game <em>(Step #{this.state.currentStep})</em></h1>
+
       <form onSubmit={this.handleSubmit} style = { { margin: '0 auto', width: '300px' } }>
 
         <GameFormOne
@@ -141,10 +123,19 @@ class NewGame extends Component {
         <GameFormTwo
           currentStep={this.state.currentStep}
           handleChange={this.handleChange}
+          gameName={this.state.gameName}
+          playersCount={this.state.playersCount}
           playersArray={this.state.playersArray}
           optionsArray={this.state.optionsArray}
         />
-
+        <GameFormThree
+          currentStep={this.state.currentStep}
+          handleChange={this.handleChange}
+          gameName={this.state.gameName}
+          playersCount={this.state.playersCount}
+          playersArray={this.state.playersArray}
+          optionsArray={this.state.optionsArray}
+        />
         {this.previousButton}
         {this.nextButton}
       </form>
@@ -153,22 +144,23 @@ class NewGame extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    firstFormSubmitted: state.firstFormSubmitted,
-    gameName: state.gameName,
-    playersCount: state.playersCount,
-    playersArray: state.playersArray,
-    optionsArray: state.optionsArray
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     firstFormSubmitted: state.firstFormSubmitted,
+//     gameName: state.gameName,
+//     playersCount: state.playersCount,
+//     playersArray: state.playersArray,
+//     optionsArray: state.optionsArray
+//   }
+// }
+//
+// const mapDispatchToProps = dispatch => ({
+//   toggleFirstFormSubmitted: payload => dispatch({ type: 'TOGGLE_FIRST_FORM_SUBMITTED', payload }),
+//   addGameName: name => dispatch({ type: 'ADD_GAME_NAME', name }),
+//   addPlayersCount: count => dispatch({ type: 'ADD_PLAYERS_COUNT', count }),
+//   addPlayersArray: players => dispatch({ type: 'ADD_PLAYERS_ARRAY', players }),
+//   addOptionsArray: options => dispatch({ type: 'ADD_OPTIONS_ARRAY', options })
+// })
 
-const mapDispatchToProps = dispatch => ({
-  toggleFirstFormSubmitted: payload => dispatch({ type: 'TOGGLE_FIRST_FORM_SUBMITTED', payload }),
-  addGameName: name => dispatch({ type: 'ADD_GAME_NAME', name }),
-  addPlayersCount: count => dispatch({ type: 'ADD_PLAYERS_COUNT', count }),
-  addPlayersArray: players => dispatch({ type: 'ADD_PLAYERS_ARRAY', players }),
-  addOptionsArray: options => dispatch({ type: 'ADD_OPTIONS_ARRAY', options })
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewGame);
+// export default connect(mapStateToProps, mapDispatchToProps)(NewGame);
+export default NewGame
