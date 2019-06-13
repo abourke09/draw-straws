@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import GameFormOne from '../components/GameFormOne'
 import GameFormTwo from '../components/GameFormTwo'
 import GameFormThree from '../components/GameFormThree'
+import GameFormFour from '../components/GameFormFour'
 
 class NewGame extends Component {
   constructor(props) {
@@ -13,15 +14,15 @@ class NewGame extends Component {
       gameName: "",
       playersCount: 2,
       playersArray: [
-        {name: "Jack"},
-        {name: "Jill"},
+        {name: ""},
+        {name: ""},
         {name: ""},
         {name: ""},
         {name: ""}
       ],
       optionsArray: [
-        {description: "Walk up the hill"},
-        {description: "Run down the hill"},
+        {description: ""},
+        {description: ""},
         {description: ""},
         {description: ""},
         {description: ""}
@@ -33,18 +34,31 @@ class NewGame extends Component {
     this._prev = this._prev.bind(this);
   }
 
+  selectOption = event => {
+    console.log("you've clicked the selectOption Button!")
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
-  handleChangeTwo = event => {
-    this.setState({
-      ...this.state, playersArray: [...this.state.playersArray, this.state.playersArray[0].name = event.target.value]
-    });
+  handleChangePlayersInput = event => {
+    this.setState({ ...this.state,
+      playersArray: this.state.playersArray.map((player, index) =>
+         Number(event.target.id) === index ? {name: event.target.value} : player
+      )
+    })
   }
-//this.state.playersArray[1].name = "Taylor"
+
+  handleChangeOptionsInput = event => {
+    this.setState({ ...this.state,
+      optionsArray: this.state.optionsArray.map((option, index) =>
+         Number(event.target.id) === index ? {description: event.target.value} : option
+      )
+    })
+  }
 
   handleSubmit = (event) => {
     event.preventDefault()
@@ -129,7 +143,8 @@ class NewGame extends Component {
         />
         <GameFormTwo
           currentStep={this.state.currentStep}
-          handleChange={this.handleChangeTwo}
+          handleChangePlayersInput={this.handleChangePlayersInput}
+          handleChangeOptionsInput={this.handleChangeOptionsInput}
           gameName={this.state.gameName}
           playersCount={this.state.playersCount}
           playersArray={this.state.playersArray}
@@ -137,7 +152,14 @@ class NewGame extends Component {
         />
         <GameFormThree
           currentStep={this.state.currentStep}
-          handleChange={this.handleChange}
+          gameName={this.state.gameName}
+          playersCount={this.state.playersCount}
+          playersArray={this.state.playersArray}
+          optionsArray={this.state.optionsArray}
+        />
+        <GameFormFour
+          currentStep={this.state.currentStep}
+          selectOption={this.selectOption}
           gameName={this.state.gameName}
           playersCount={this.state.playersCount}
           playersArray={this.state.playersArray}
