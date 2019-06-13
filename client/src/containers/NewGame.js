@@ -35,9 +35,16 @@ class NewGame extends Component {
 
   handleChange = event => {
     this.setState({
-      [event.target.id]: event.target.value
+      [event.target.name]: event.target.value
     });
   }
+
+  handleChangeTwo = event => {
+    this.setState({
+      ...this.state, playersArray: [...this.state.playersArray, this.state.playersArray[0].name = event.target.value]
+    });
+  }
+//this.state.playersArray[1].name = "Taylor"
 
   handleSubmit = (event) => {
     event.preventDefault()
@@ -122,7 +129,7 @@ class NewGame extends Component {
         />
         <GameFormTwo
           currentStep={this.state.currentStep}
-          handleChange={this.handleChange}
+          handleChange={this.handleChangeTwo}
           gameName={this.state.gameName}
           playersCount={this.state.playersCount}
           playersArray={this.state.playersArray}
