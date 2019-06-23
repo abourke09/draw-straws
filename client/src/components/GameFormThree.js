@@ -24,11 +24,13 @@ class GameFormThree extends Component {
         <div className="form-group">
           <h2 align="center">{this.props.gameName}</h2>
           <table width="100%" border="1">
-          <tr>
-            <th>Players</th>
-            <th>Options</th>
-          </tr>
-          {rowContainer}
+            <tbody>
+              <tr>
+                <th>Players</th>
+                <th>Options</th>
+              </tr>
+              {rowContainer}
+            </tbody>
           </table>
           <p><em>Click Next to Draw Straws for this new game!</em></p>
         </div>
