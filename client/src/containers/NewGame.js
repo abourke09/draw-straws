@@ -34,8 +34,9 @@ class NewGame extends Component {
     this._prev = this._prev.bind(this);
   }
 
-  selectOption = event => {
-    console.log("you've clicked the selectOption Button!")
+  selectOption = (event) => {
+    console.log(`you've clicked the selectOption Button for ${this.shuffledPlayers[0]}!`)
+    // x++
   }
 
   handleChange = event => {
@@ -118,17 +119,9 @@ class NewGame extends Component {
     return null;
   }
 
-  // Fisher-Yates shuffle: https://javascript.info/task/shuffle
-  // Let array = ["Annie", "Grace", "Lindsay"];
-    shuffleDraw(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array[0]
-    }
 
   render() {
+    //console.log("players array: ", this.state.playersArray)
     return(
       <React.Fragment>
       <h1 align= 'center'>Play A New Game <em>(Step #{this.state.currentStep})</em></h1>
