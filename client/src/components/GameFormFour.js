@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
-// - [ ] Fourth form randomly shuffles the array of Players and alerts each when it's
-// their turn the draw, allowing them to select an option button.
+import update from 'immutability-helper';
 
-// - [ ] When each user selects an option button, it adds three new key:value pairs to the
-// GameFormFour state, {name:"string"}, {draw:integer} and {description:"string"}
+// MAKE EACH BUTTON UN-CLICKABLE ONCE IT'S BEEN SELECTED BY A USER
 
-// form four receives the players array as props
-// componentDidUpdate takes in the playersArray prop and pushes the players names into the
-//    new state array with setState (not all 5, don't include empty strings)
-// when button click happens, the current player id ++ increments up
-// we know which draw/current player's turn it is when their index (this.state.players[index] === currentPlayerIndex)
-// the shuffle happens before this.props.playersArray is pushed into this.state.players
+//when each player's description !== "" , add a save game button to the DOM
 
 class GameFormFour extends Component {
 
@@ -18,36 +11,40 @@ class GameFormFour extends Component {
     super(props);
 
     this.state = {
-      currentPlayerIndex: 0,
-      players: [
-        // {name:"string", draw:integer, description:"string"},
-      ]
+      currentPlayerIndex: -1,
+      players: []
     };
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if (this.props.currentStep === 4) {
+      if (this.state.currentPlayerIndex === -1){
+        let filteredPlayers = prevProps.playersArray.filter(player => player.name !== "")
+        let shuffledPlayers = []
 
-componentDidUpdate(prevProps, prevState, snapshot){
-//  let newArray = this.shuffleDraw(this.props.playersArray)
-  if (prevProps.playersArray !== this.state.players) {
+        this.shuffleDraw(filteredPlayers).map((player, index) =>
+            shuffledPlayers.push({name:`${player.name}`, draw:index+1, description:"" })
+        )
+
+        this.setState({
+          currentPlayerIndex: this.state.currentPlayerIndex + 1,
+          players: shuffledPlayers
+        })
+      }
+    } //checks currentStep is 4
+  } //closes componentDidUpdate
+
+  handleClick = event => {
+    let i = this.state.currentPlayerIndex
     this.setState({
-      ...this.state,
-      players : prevProps.playersArray
-      })
-  }
-// let newArray = ["Pink", "Purple"]
-//   console.log("new array: ", newArray)
-//   return newArray
-}
-
-  handleChange = event => {
-    let x = 0
-
-    console.log(`you've clicked the selectOption Button for ${this.shuffledPlayers[x]}!`)
-
-    // this.setState({
-    //   [event.target.name]: event.target.value
-    // });
-    x++
+      currentPlayerIndex: i + 1,
+      players: this.state.players.map((player, index) =>
+        index === i ?
+        update(this.state.players[i], {description: {$set: `${event.currentTarget.innerText}`}})
+        :
+        player
+      )
+    })
   }
 
 // Fisher-Yates shuffle: https://javascript.info/task/shuffle
@@ -59,15 +56,18 @@ componentDidUpdate(prevProps, prevState, snapshot){
     return array
   }
 
-
   render() {
       if (this.props.currentStep !== 4) {
         return null
       }
 
+      let message = "Click the Save button to save and end this game"
+      if (this.state.players[this.state.currentPlayerIndex]) {
+        message = `Congratulations ${this.state.players[this.state.currentPlayerIndex].name}, it's your turn to draw!`
+      }
+
       const rowContainer = []
       let i = 0
-
       while (i < this.props.playersCount) {
         rowContainer.push(<>
         <tr key={i}>
@@ -77,11 +77,6 @@ componentDidUpdate(prevProps, prevState, snapshot){
         </>)
         i++
       }
-
-      let shuffledPlayers = []
-      this.shuffleDraw(this.props.playersArray).map((player, index) =>
-        shuffledPlayers.push(`${player.name} `)
-      )
 
       return(
         <div className="form-group">
@@ -96,7 +91,7 @@ componentDidUpdate(prevProps, prevState, snapshot){
               {rowContainer}
             </tbody>
           </table>
-          <p><em>Congratulations, {this.state.players[this.state.currentPlayerIndex]}!</em></p>
+        <p><em>{message}</em></p>
         </div>
     )
   }
