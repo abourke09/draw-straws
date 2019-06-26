@@ -72,7 +72,7 @@ class NewGame extends Component {
   _next() {
     let currentStep = this.state.currentStep
     // If the current step is 1 or 2, then add one on "next" button click
-    currentStep = currentStep >= 10? 3: currentStep + 1
+    currentStep = currentStep >= 4? 4: currentStep + 1
     this.setState({
       currentStep: currentStep
     })
@@ -80,16 +80,18 @@ class NewGame extends Component {
 
   _prev() {
     let currentStep = this.state.currentStep
-    // If the current step is 2 or 3, then subtract one on "previous" button click
     currentStep = currentStep <= 1? 1: currentStep - 1
     this.setState({
       currentStep: currentStep
     })
   }
 
+  _save() {
+
+  }
+
   get previousButton(){
     let currentStep = this.state.currentStep;
-    // If the current step is not 1, then render the "previous" button
     if(currentStep !==1){
       return (
         <button
@@ -99,13 +101,11 @@ class NewGame extends Component {
         </button>
       )
     }
-    // ...else return nothing
     return null;
   }
 
   get nextButton(){
     let currentStep = this.state.currentStep;
-    // If the current step is not 2, then render the "next" button
     if(currentStep <4){
       return (
         <button
@@ -115,16 +115,20 @@ class NewGame extends Component {
         </button>
       )
     }
-    // ...else render nothing
-    return null;
+    return (
+      <button
+        className="btn btn-primary float-right"
+        type="button" onClick={this._save}>
+      Save
+      </button>
+      )
   }
 
 
   render() {
-    //console.log("players array: ", this.state.playersArray)
     return(
       <React.Fragment>
-      <h1 align= 'center'>Play A New Game <em>(Step #{this.state.currentStep})</em></h1>
+      <h1 align= 'center'>Play A New Game <em></em></h1>
 
       <form onSubmit={this.handleSubmit} style = { { margin: '0 auto', width: '300px' } }>
 
