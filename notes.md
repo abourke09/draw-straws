@@ -31,7 +31,7 @@ To-Dos
   - [X] Third form displays a table of the Players & Options and explains that the "Next"" button will begin the Draw.
   - [X] Fourth form randomly shuffles the array of Players and alerts each when it's their turn the draw, allowing them to select an option button.
   - [X] When each user selects an option button, it adds two new key:value pairs to each player in the playersArray, {"draw":integer} and {"description":"string"}
-  - [ ] When all players have selected an option button, text is displayed saying "Click Next to finish and save this game."
+  - [X] When all players have selected an option button, text is displayed saying "Click Next to finish and save this game."
   - [ ] The Game/Options/Players are then saved to the API database
   - [ ] The DOM then redirects to the new GameShow page
 
