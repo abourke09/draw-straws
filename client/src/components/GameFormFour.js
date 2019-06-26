@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import update from 'immutability-helper';
 
-// MAKE EACH BUTTON UN-CLICKABLE ONCE IT'S BEEN SELECTED BY A USER
-
 //when each player's description !== "" , add a save game button to the DOM
 
 class GameFormFour extends Component {
@@ -36,15 +34,25 @@ class GameFormFour extends Component {
 
   handleClick = event => {
     let i = this.state.currentPlayerIndex
-    this.setState({
-      currentPlayerIndex: i + 1,
-      players: this.state.players.map((player, index) =>
-        index === i ?
-        update(this.state.players[i], {description: {$set: `${event.currentTarget.innerText}`}})
-        :
-        player
-      )
-    })
+    let shouldUpdate = true
+
+    this.state.players.map((player, index) =>
+      event.currentTarget.innerText === player.description ? shouldUpdate = false : shouldUpdate
+    )
+
+    if (shouldUpdate) {
+      this.setState({
+        currentPlayerIndex: i + 1,
+        players: this.state.players.map((player, index) =>
+          index === i ?
+          update(this.state.players[i], {description: {$set: `${event.currentTarget.innerText}`}})
+          :
+          player
+        )
+      })
+    } else {
+      alert("Sorry, another player has already chosen that option. Please try again.")
+    }
   }
 
 // Fisher-Yates shuffle: https://javascript.info/task/shuffle
