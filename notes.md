@@ -29,8 +29,8 @@ To-Dos
   - [X] When first form submits, data is saved to NewGame state and second form replaces the first on the DOM.
   - [X] Second form takes in the state from NewGame and allows the user to input Players names and Option descriptions.
   - [X] Third form displays a table of the Players & Options and explains that the "Next"" button will begin the Draw.
-  - [ ] Fourth form randomly shuffles the array of Players and alerts each when it's their turn the draw, allowing them to select an option button.
-  - [ ] When each user selects an option button, it adds two new key:value pairs to each player in the playersArray, {"draw":integer} and {"description":"string"}
+  - [X] Fourth form randomly shuffles the array of Players and alerts each when it's their turn the draw, allowing them to select an option button.
+  - [X] When each user selects an option button, it adds two new key:value pairs to each player in the playersArray, {"draw":integer} and {"description":"string"}
   - [ ] When all players have selected an option button, text is displayed saying "Click Next to finish and save this game."
   - [ ] The Game/Options/Players are then saved to the API database
   - [ ] The DOM then redirects to the new GameShow page
