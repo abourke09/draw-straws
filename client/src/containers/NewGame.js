@@ -11,19 +11,19 @@ class NewGame extends Component {
 
     this.state = {
       currentStep: 1,
-      gameName: "",
-      playersCount: 2,
+      gameName: "Candyland",
+      playersCount: 3,
       playersArray: [
-        {name: ""},
-        {name: ""},
-        {name: ""},
+        {name: "Annie"},
+        {name: "Lokesh"},
+        {name: "Greg"},
         {name: ""},
         {name: ""}
       ],
       optionsArray: [
-        {description: ""},
-        {description: ""},
-        {description: ""},
+        {description: "pie"},
+        {description: "pizza"},
+        {description: "salad"},
         {description: ""},
         {description: ""}
       ]
