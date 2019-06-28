@@ -77,12 +77,14 @@ class GameFormFour extends Component {
       const rowContainer = []
       let i = 0
       while (i < this.props.playersCount) {
-        rowContainer.push(<>
-        <tr key={i}>
-          <td>{this.props.playersArray[i].name}</td>
-          <td><button type="button" onClick={this.handleClick}>{this.props.optionsArray[i].description}</button></td>
-        </tr>
-        </>)
+        rowContainer.push(
+          <React.Fragment key={i}>
+            <tr>
+              <td>{this.props.playersArray[i].name}</td>
+              <td><button type="button" onClick={this.handleClick}>{this.props.optionsArray[i].description}</button></td>
+            </tr>
+          </React.Fragment>
+        )
         i++
       }
 

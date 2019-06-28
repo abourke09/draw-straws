@@ -11,12 +11,14 @@ class GameFormThree extends Component {
       let i = 0
 
       while (i < this.props.playersCount) {
-        rowContainer.push(<>
-          <tr key={i.toString()}>
-            <td key={this.props.playersArray[i].name}>{this.props.playersArray[i].name}</td>
-            <td key={this.props.optionsArray[i].description}>{this.props.optionsArray[i].description}</td>
-          </tr>
-        </>)
+        rowContainer.push(
+          <React.Fragment key={i}>
+            <tr>
+              <td>{this.props.playersArray[i].name}</td>
+              <td>{this.props.optionsArray[i].description}</td>
+            </tr>
+          </React.Fragment>
+        )
         i++
       }
 
@@ -25,9 +27,9 @@ class GameFormThree extends Component {
           <h2 align="center">{this.props.gameName}</h2>
           <table width="100%" border="1">
             <tbody>
-              <tr key={422}>
-                <th key={365}>Players</th>
-                <th key={542}>Options</th>
+              <tr>
+                <th>Players</th>
+                <th>Options</th>
               </tr>
               {rowContainer}
             </tbody>
