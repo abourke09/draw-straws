@@ -12,10 +12,10 @@ class GameFormThree extends Component {
 
       while (i < this.props.playersCount) {
         rowContainer.push(<>
-        <tr key={i}>
-          <td>{this.props.playersArray[i].name}</td>
-          <td>{this.props.optionsArray[i].description}</td>
-        </tr>
+          <tr key={i.toString()}>
+            <td key={this.props.playersArray[i].name}>{this.props.playersArray[i].name}</td>
+            <td key={this.props.optionsArray[i].description}>{this.props.optionsArray[i].description}</td>
+          </tr>
         </>)
         i++
       }
@@ -25,9 +25,9 @@ class GameFormThree extends Component {
           <h2 align="center">{this.props.gameName}</h2>
           <table width="100%" border="1">
             <tbody>
-              <tr>
-                <th>Players</th>
-                <th>Options</th>
+              <tr key={422}>
+                <th key={365}>Players</th>
+                <th key={542}>Options</th>
               </tr>
               {rowContainer}
             </tbody>
