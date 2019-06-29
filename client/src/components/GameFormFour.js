@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import update from 'immutability-helper';
+import { connect } from 'react-redux'
+import { createGame } from '../actions/games'
 
 //when each player's description !== "" , add a save game button to the DOM
 
@@ -9,6 +11,7 @@ class GameFormFour extends Component {
     super(props);
 
     this.state = {
+      gameName: "",
       currentPlayerIndex: -1,
       players: []
     };
@@ -25,6 +28,7 @@ class GameFormFour extends Component {
         )
 
         this.setState({
+          gameName: this.props.gameName,
           currentPlayerIndex: this.state.currentPlayerIndex + 1,
           players: shuffledPlayers
         })
@@ -42,6 +46,7 @@ class GameFormFour extends Component {
 
     if (shouldUpdate) {
       this.setState({
+        ...this.state,
         currentPlayerIndex: i + 1,
         players: this.state.players.map((player, index) =>
           index === i ?
@@ -53,6 +58,17 @@ class GameFormFour extends Component {
     } else {
       alert("Sorry, another player has already chosen that option. Please try again.")
     }
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    this.props.createGame(this.state)
+    
+    this.setState({
+      gameName: "",
+      currentPlayerIndex: -1,
+      players: []
+    });
   }
 
 // Fisher-Yates shuffle: https://javascript.info/task/shuffle
@@ -101,10 +117,12 @@ class GameFormFour extends Component {
               {rowContainer}
             </tbody>
           </table>
-        <p><em>{message}</em></p>
+
+          <p><em>{message}</em></p>
+          <button className="btn btn-primary float-right" type="button" onClick={this.handleSubmit}>Save</button>
         </div>
     )
   }
 }
 
-export default GameFormFour;
+export default connect(null, { createGame })(GameFormFour)
