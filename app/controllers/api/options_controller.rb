@@ -27,7 +27,7 @@ class Api::OptionsController < ApplicationController
   private
 
   def option_params
-    params.require(:option).permit(:player_id, :option_id, :description, :draw, :name)
+    params.require(:option).permit(:player_id, :game_id, :description, :draw)
   end
 
 end
