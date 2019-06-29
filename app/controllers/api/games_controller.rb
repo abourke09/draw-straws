@@ -9,8 +9,16 @@ class Api::GamesController < ApplicationController
   end
 
   def create
-    game = Game.new(game_params)
+    #create (or update)the players and options here too
+    game = Game.new(name: params["game"]["name"])
+
     if game.save
+      params["game"]["players"].each do |player|
+        p = game.players.build(name: player["name"])
+        p.save
+        o = game.options.build(description: player["description"], player_id: p.id, draw:player["draw"])
+        o.save
+      end
       render json: game
     else
       render json: { message: game.errors }, status: 400
