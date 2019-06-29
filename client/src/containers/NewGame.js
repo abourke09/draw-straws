@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { connect } from 'react-redux'
 import GameFormOne from '../components/GameFormOne'
 import GameFormTwo from '../components/GameFormTwo'
 import GameFormThree from '../components/GameFormThree'
@@ -61,14 +60,6 @@ class NewGame extends Component {
     })
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const { gameName, playersCount } = this.state
-    console.log("This.state.gameName: ", gameName )
-    console.log("This.state.playersCount: ", playersCount )
-    console.log("Event: ", event )
-  }
-
   _next() {
     let currentStep = this.state.currentStep
     // If the current step is 1 or 2, then add one on "next" button click
@@ -84,10 +75,6 @@ class NewGame extends Component {
     this.setState({
       currentStep: currentStep
     })
-  }
-
-  _save() {
-
   }
 
   get previousButton(){
@@ -115,78 +102,51 @@ class NewGame extends Component {
         </button>
       )
     }
-    return (
-      <button
-        className="btn btn-primary float-right"
-        type="button" onClick={this._save}>
-      Save
-      </button>
-      )
+    return null
   }
-
 
   render() {
     return(
       <React.Fragment>
-      <h1 align= 'center'>Play A New Game <em></em></h1>
+        <h1 align= 'center'>Play A New Game <em></em></h1>
 
-      <form onSubmit={this.handleSubmit} style = { { margin: '0 auto', width: '300px' } }>
-
-        <GameFormOne
-          currentStep={this.state.currentStep}
-          handleChange={this.handleChange}
-          gameName={this.state.gameName}
-          playersCount={this.state.playersCount}
-        />
-        <GameFormTwo
-          currentStep={this.state.currentStep}
-          handleChangePlayersInput={this.handleChangePlayersInput}
-          handleChangeOptionsInput={this.handleChangeOptionsInput}
-          gameName={this.state.gameName}
-          playersCount={this.state.playersCount}
-          playersArray={this.state.playersArray}
-          optionsArray={this.state.optionsArray}
-        />
-        <GameFormThree
-          currentStep={this.state.currentStep}
-          gameName={this.state.gameName}
-          playersCount={this.state.playersCount}
-          playersArray={this.state.playersArray}
-          optionsArray={this.state.optionsArray}
-        />
-        <GameFormFour
-          currentStep={this.state.currentStep}
-          selectOption={this.selectOption}
-          gameName={this.state.gameName}
-          playersCount={this.state.playersCount}
-          playersArray={this.state.playersArray}
-          optionsArray={this.state.optionsArray}
-        />
-        {this.previousButton}
-        {this.nextButton}
-      </form>
+        <form style = { { margin: '0 auto', width: '300px' } }>
+          <GameFormOne
+            currentStep={this.state.currentStep}
+            handleChange={this.handleChange}
+            gameName={this.state.gameName}
+            playersCount={this.state.playersCount}
+          />
+          <GameFormTwo
+            currentStep={this.state.currentStep}
+            handleChangePlayersInput={this.handleChangePlayersInput}
+            handleChangeOptionsInput={this.handleChangeOptionsInput}
+            gameName={this.state.gameName}
+            playersCount={this.state.playersCount}
+            playersArray={this.state.playersArray}
+            optionsArray={this.state.optionsArray}
+          />
+          <GameFormThree
+            currentStep={this.state.currentStep}
+            gameName={this.state.gameName}
+            playersCount={this.state.playersCount}
+            playersArray={this.state.playersArray}
+            optionsArray={this.state.optionsArray}
+          />
+          <GameFormFour
+            currentStep={this.state.currentStep}
+            selectOption={this.selectOption}
+            gameName={this.state.gameName}
+            playersCount={this.state.playersCount}
+            playersArray={this.state.playersArray}
+            optionsArray={this.state.optionsArray}
+          />
+          {this.previousButton}
+          {this.nextButton}
+        </form>
       </React.Fragment>
     )
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     firstFormSubmitted: state.firstFormSubmitted,
-//     gameName: state.gameName,
-//     playersCount: state.playersCount,
-//     playersArray: state.playersArray,
-//     optionsArray: state.optionsArray
-//   }
-// }
-//
-// const mapDispatchToProps = dispatch => ({
-//   toggleFirstFormSubmitted: payload => dispatch({ type: 'TOGGLE_FIRST_FORM_SUBMITTED', payload }),
-//   addGameName: name => dispatch({ type: 'ADD_GAME_NAME', name }),
-//   addPlayersCount: count => dispatch({ type: 'ADD_PLAYERS_COUNT', count }),
-//   addPlayersArray: players => dispatch({ type: 'ADD_PLAYERS_ARRAY', players }),
-//   addOptionsArray: options => dispatch({ type: 'ADD_OPTIONS_ARRAY', options })
-// })
-
-// export default connect(mapStateToProps, mapDispatchToProps)(NewGame);
 export default NewGame
