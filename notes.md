@@ -33,6 +33,9 @@ To-Dos
   - [X] When each user selects an option button, it adds two new key:value pairs to each player in the playersArray, {"draw":integer} and {"description":"string"}
   - [X] When all players have selected an option button, text is displayed saying "Click Next to finish and save this game."
   - [ ] The Game/Options/Players are then saved to the API database
+    - [ ] Build out the Game controller action so that it can create the players and options all in one go
+    - [ ] Check whether any players are already in the database, in which case update instead of create
+    - [ ] Build a create action and reducer for the new game  
   - [ ] The DOM then redirects to the new GameShow page
 
 
