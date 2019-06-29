@@ -9,6 +9,9 @@ export default function playersReducer(state = initialState, action) {
       return { ...state, all: action.payload }
     case 'SET_PLAYER':
       return { ...state, current: action.payload }
-    default: return state
+    case 'CREATE_PLAYERS':
+    let newArray = [...state.all, action.payload].flatten()
+      return { ...state, all: newArray}
+  default: return state
   }
 }
