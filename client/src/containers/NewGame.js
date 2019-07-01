@@ -10,19 +10,19 @@ class NewGame extends Component {
 
     this.state = {
       currentStep: 1,
-      gameName: "Candyland",
-      playersCount: 3,
+      gameName: "",
+      playersCount: 2,
       playersArray: [
-        {name: "Annie"},
-        {name: "Lokesh"},
-        {name: "Greg"},
+        {name: ""},
+        {name: ""},
+        {name: ""},
         {name: ""},
         {name: ""}
       ],
       optionsArray: [
-        {description: "pie"},
-        {description: "pizza"},
-        {description: "salad"},
+        {description: ""},
+        {description: ""},
+        {description: ""},
         {description: ""},
         {description: ""}
       ]
@@ -31,11 +31,6 @@ class NewGame extends Component {
     this.handleChange = this.handleChange.bind(this);
     this._next = this._next.bind(this);
     this._prev = this._prev.bind(this);
-  }
-
-  selectOption = (event) => {
-    console.log(`you've clicked the selectOption Button for ${this.shuffledPlayers[0]}!`)
-    // x++
   }
 
   handleChange = event => {
@@ -135,7 +130,6 @@ class NewGame extends Component {
           />
           <GameFormFour
             currentStep={this.state.currentStep}
-            selectOption={this.selectOption}
             gameName={this.state.gameName}
             playersCount={this.state.playersCount}
             playersArray={this.state.playersArray}
