@@ -15,7 +15,7 @@ class GameFormTwo extends Component {
         let player = this.props.playersArray[i]
         let option = this.props.optionsArray[i]
 
-        playersContainer.push(<div key={player.name}><label htmlFor="playersArray[i]">Player {i+1} Name:</label>
+        playersContainer.push(<div key={i}><label htmlFor="playersArray[i]">Player {i+1} Name:</label>
         <input
           className="form-control"
           name={player.name}
@@ -24,7 +24,7 @@ class GameFormTwo extends Component {
           onChange={this.props.handleChangePlayersInput}
         /></div>);
 
-        optionsContainer.push(<div key={option.description}><label htmlFor="optionsArray[i]">Option {i+1}:</label>
+        optionsContainer.push(<div key={i.toString()}><label htmlFor="optionsArray[i]">Option {i+1}:</label>
         <input
           className="form-control"
           name={option.description}
