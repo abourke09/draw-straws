@@ -24,7 +24,7 @@ class PlayerShow extends Component {
         <Container>
           <CardDeck style = { {display: 'flex', flexDirection: 'column', alignItems: 'baseline' } }>
             {this.props.player.options&&this.props.player.options.map((option) =>
-                <Row>
+                <Row key={option.game.name}>
                   <Col>
                     <Card bg="light" style={ {
                     //  fontSize: '30',
