@@ -18,6 +18,7 @@ class GameFormTwo extends Component {
         playersContainer.push(<div key={i}><label htmlFor="playersArray[i]">Player {i+1} Name:</label>
         <input
           className="form-control"
+          id={i}
           name={player.name}
           type="text"
           value= {player.name}
@@ -27,6 +28,7 @@ class GameFormTwo extends Component {
         optionsContainer.push(<div key={i.toString()}><label htmlFor="optionsArray[i]">Option {i+1}:</label>
         <input
           className="form-control"
+          id={i}
           name={option.description}
           type="text"
           value= {option.description}
