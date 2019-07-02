@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import update from 'immutability-helper';
 import { connect } from 'react-redux'
 import { createGame } from '../actions/games'
+import { withRouter } from "react-router";
 
 //when each player's description !== "" , add a save game button to the DOM
 
@@ -62,13 +63,14 @@ class GameFormFour extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    this.props.createGame(this.state)
-    
+    this.props.createGame(this.state, this.props.history)
+
     this.setState({
       gameName: "",
       currentPlayerIndex: -1,
       players: []
     });
+
   }
 
 // Fisher-Yates shuffle: https://javascript.info/task/shuffle
@@ -125,4 +127,4 @@ class GameFormFour extends Component {
   }
 }
 
-export default connect(null, { createGame })(GameFormFour)
+export default withRouter(connect(null, { createGame })(GameFormFour))
