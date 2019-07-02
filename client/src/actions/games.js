@@ -43,9 +43,9 @@ export const setGame = (game_id) => {
 }
 
 //create a new game
-export const createGame = gameState => {
+export const createGame = (gameState, history) => {
   //convert game data to a format that the game controller will like:
-  const game = {
+  const formattedGame = {
     name: gameState.gameName,
     players: gameState.players
   }
@@ -56,22 +56,26 @@ export const createGame = gameState => {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ game })
+    body: JSON.stringify({ formattedGame })
   }
 
   return dispatch => {
-    fetch(`${ baseUrl }/games`, data)
-      .then(response => response.json())
-      .then(formattedGame => dispatch({
-        type: 'CREATE_GAME',
-        payload: formattedGame
-      }))
-      .then(formattedGame => dispatch({
+    return fetch(`${ baseUrl }/games`, data)
+    .then(response => response.json())
+    .then(game => {
+      return dispatch({
+      type: 'CREATE_GAME',
+      payload: game
+      })
+    })
+    .then(game => {
+      return dispatch({
         type: 'CREATE_PLAYERS',
-        payload: formattedGame.players
-      }))
-      .catch(err => err)
+        payload: game.payload.players
+      })
+   })
+   .then(game => history.push(`/games/${game.payload[0].games[game.payload[0].games.length - 1].id}`))
+   .catch(err => err)
   }
-
 
 }
