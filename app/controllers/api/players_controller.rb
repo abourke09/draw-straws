@@ -9,7 +9,7 @@ class Api::PlayersController < ApplicationController
   end
 
   def create
-    player = Player.find_or_create_by(player_params)
+    player = Player.new(player_params)
     if player.save
       render json: player
     else
