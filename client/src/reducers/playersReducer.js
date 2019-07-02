@@ -10,8 +10,8 @@ export default function playersReducer(state = initialState, action) {
     case 'SET_PLAYER':
       return { ...state, current: action.payload }
     case 'CREATE_PLAYERS':
-    let newArray = [...state.all, action.payload].flatten()
-      return { ...state, all: newArray}
+    //i need to make an option to update the player if they've already been created
+      return { ...state, all: state.all.concat(action.payload)}
   default: return state
   }
 }
