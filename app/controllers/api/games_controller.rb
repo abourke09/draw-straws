@@ -9,14 +9,12 @@ class Api::GamesController < ApplicationController
   end
 
   def create
-    #create (or update)the players and options here too
     game = Game.new(name: params["formattedGame"]["name"])
 
     if game.save
       params["formattedGame"]["players"].each do |player|
-        p = game.players.build(name: player["name"])
-        p.save
-        o = game.options.build(description: player["description"], player_id: p.id, draw:player["draw"])
+        p = Player.find_or_create_by(name: player["name"])
+        o = Option.new(player_id: p.id, game_id: game.id, description: player["description"],  draw:player["draw"], )
         o.save
       end
       render json: game
