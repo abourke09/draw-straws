@@ -24,7 +24,7 @@ To-Dos
   - [X] Individual Game
   - [X] Individual Player
 
-- [ ] Make form(s) for a new game
+- [X] Make form(s) for a new game
   - [X] First form takes in the Game name and number of Players.
   - [X] When first form submits, data is saved to NewGame state and second form replaces the first on the DOM.
   - [X] Second form takes in the state from NewGame and allows the user to input Players names and Option descriptions.
@@ -34,10 +34,14 @@ To-Dos
   - [X] When all players have selected an option button, text is displayed saying "Click Next to finish and save this game."
   - [X] The Game/Options/Players are then saved to the API database
     - [X] Build out the Game controller action so that it can create the players and options all in one go
-    - [ ] Check whether any players are already in the database, in which case UPDATE instead of create
+    - [X] Check whether any players are already in the database, in which case UPDATE instead of create
     - [X] Build a create action and reducer for the new game  
-  - [ ] The DOM then redirects to the new GameShow page
+    - [X] Update the Redux Store with the new Game and either update or create the Players array
+  - [X] The DOM then redirects to the new GameShow page
+  - [ ] Get the Nav to not re-fetch every time a navlink is clicked
+  - [ ] Better formatting on the Player Show page
 
+Clear and Re-Seed the database with this command: `rake db:reset`
 
 Components & Containers
 -----------------------
