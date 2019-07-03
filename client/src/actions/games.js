@@ -69,12 +69,14 @@ export const createGame = (gameState, history) => {
       })
     })
     .then(game => {
-      return dispatch({
-        type: 'CREATE_PLAYERS',
-        payload: game.payload.players
+       return game.payload.players.map((player, index) => {
+        return dispatch({
+          type: 'CREATE_OR_UPDATE_PLAYER',
+          payload: player
+        })
       })
    })
-   .then(game => history.push(`/games/${game.payload[0].games[game.payload[0].games.length - 1].id}`))
+   .then(game => history.push(`/games/${game[0].payload.games[game[0].payload.games.length - 1].id}`))
    .catch(err => err)
   }
 
