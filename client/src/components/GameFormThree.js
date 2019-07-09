@@ -34,7 +34,7 @@ class GameFormThree extends Component {
               {rowContainer}
             </tbody>
           </table>
-          <p><em>Click Next to Draw Straws for this new game!</em></p>
+          <p><strong>Click Next to Draw Straws!</strong></p>
         </div>
     )
   }
