@@ -44,7 +44,7 @@ To-Dos
   - [ ] Make this Readme better
   - [ ] Record Video walkthrough
   - [ ] Finish writing blogpost
-  - [ ] Review React and Redux for project review questions
+  - [ ] Review React and Redux for project review questions, compile notes
   REVIEW IS 7AM-7:45AM WEDNESDAY WITH ALICE BALBUENA!
 
 Clear and Re-Seed the database with this command: `rake db:reset`
@@ -83,16 +83,16 @@ Requirements
 - [X] The code should be written in ES6 as much as possible
 - [X] Use the create-react-app generator to start your project.
 - [X] Follow the instructions on this repo to setup the generator: create-react-app
-- [ ] Your app should have one HTML page to render your react-redux application
+- [X] Your app should have one HTML page to render your react-redux application
 - [X] There should be 2 container components
   1. Games
   2. Players
-- [ ] There should be 5 stateless components:
+- [X] There should be 5 stateless components:
   1. PlayerCard
   2. OptionCard
   3. GameCard
   4. Home
-  5.
+  5. Navbar
 - [X] There should be 3 routes
   1. New
   2. Players
@@ -101,5 +101,5 @@ Requirements
 - [X] Use Redux middleware to respond to and modify state change
 - [X] Make use of async actions to send data to and receive data from a server
 - [X] Your Rails API should handle the data persistence. You should be using fetch() within your actions to GET and POST data from your API - do not use jQuery methods.
-- [ ] Your client-side application should handle the display of data with minimal data manipulation
+- [X] Your client-side application should handle the display of data with minimal data manipulation
 - [X] Your application should have some minimal styling: feel free to stick to a framework (like react-bootstrap), but if you want to write (additional) CSS yourself, go for it!
