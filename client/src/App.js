@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyNavbar from './components/Navbar'
 import Home from './components/Home';
 import NewGame from './containers/NewGame';
-import MasterForm from './containers/MasterForm';
 import Players from './containers/Players';
 import Games from './containers/Games';
 import PlayerShow from './containers/PlayerShow';
@@ -24,7 +23,6 @@ class App extends Component {
         <Router>
           <MyNavbar/>
           <Route exact path="/" component={Home}/>
-          <Route exact path="/tester" component={MasterForm}/>
           <Route exact path="/new" component={NewGame}/>
           <Route exact path="/players" component={Players}/>
           <Route exact path="/games" component={Games}/>
