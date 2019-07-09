@@ -40,6 +40,12 @@ To-Dos
   - [X] The DOM then redirects to the new GameShow page
   - [ ] Get the Nav to not re-fetch every time a navlink is clicked
   - [ ] Better formatting on the Player Show page
+  - [ ] Make a branch that experiments with incorporating more Redux instead of using the React state for the game portion
+  - [ ] Make this Readme better
+  - [ ] Record Video walkthrough
+  - [ ] Finish writing blogpost
+  - [ ] Review React and Redux for project review questions
+  REVIEW IS 7AM-7:45AM WEDNESDAY WITH ALICE BALBUENA!
 
 Clear and Re-Seed the database with this command: `rake db:reset`
 
@@ -71,3 +77,29 @@ NavBar & Show URLs
 | All Games       | '/games'      |
 | `</PlayerShow>` | '/players/:id'|
 | `</GameShow>`   | '/games/:id'  |
+
+Requirements
+-------------------
+- [X] The code should be written in ES6 as much as possible
+- [X] Use the create-react-app generator to start your project.
+- [X] Follow the instructions on this repo to setup the generator: create-react-app
+- [ ] Your app should have one HTML page to render your react-redux application
+- [X] There should be 2 container components
+  1. Games
+  2. Players
+- [ ] There should be 5 stateless components:
+  1. PlayerCard
+  2. OptionCard
+  3. GameCard
+  4. Home
+  5.
+- [X] There should be 3 routes
+  1. New
+  2. Players
+  3. Games
+- [X] The Application must make use of react-router and proper RESTful routing (should you choose to use react-router v3 please refer to the appropriate docs; docs for v4 can be found here)
+- [X] Use Redux middleware to respond to and modify state change
+- [X] Make use of async actions to send data to and receive data from a server
+- [X] Your Rails API should handle the data persistence. You should be using fetch() within your actions to GET and POST data from your API - do not use jQuery methods.
+- [ ] Your client-side application should handle the display of data with minimal data manipulation
+- [X] Your application should have some minimal styling: feel free to stick to a framework (like react-bootstrap), but if you want to write (additional) CSS yourself, go for it!
