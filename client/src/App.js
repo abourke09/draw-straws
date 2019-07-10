@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MyNavbar from './components/Navbar'
 import Home from './components/Home';
 import NewGame from './containers/NewGame';
@@ -10,6 +9,7 @@ import GameShow from './containers/GameShow';
 import { connect } from 'react-redux';
 import { fetchPlayers } from './actions/players'
 import { fetchGames } from './actions/games'
+import { Switch, Route } from 'react-router-dom'
 
 class App extends Component {
   componentDidMount(){
@@ -20,15 +20,15 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Router>
-          <MyNavbar/>
+        <MyNavbar/>
+        <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/new" component={NewGame}/>
           <Route exact path="/players" component={Players}/>
           <Route exact path="/games" component={Games}/>
           <Route path="/players/:id" component={PlayerShow} />
           <Route path="/games/:id" component={GameShow} />
-        </Router>
+        </Switch>
       </div>
     )
   }
