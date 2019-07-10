@@ -1,49 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import { Link } from 'react-router-dom';
 
-//js SIDEeffects setstate 
-class PlayerCard extends Component {
+const PlayerCard = (props) => {
+  const url = `/players/${props.player.id}`
 
-  constructor(props) {
-    super(props);
+  const gameNames = props.player.games.map( (game, index) => <ListGroup.Item key={index}>{game.name}</ListGroup.Item> )
 
-    this.state = {
-      counter: 0,
-    };
-  }
+    return (
+      <Card bg="light" style={ {margin: '25px', flex: '0 1 24%'} }>
+        <Card.Header>{props.player.name}</Card.Header>
 
-  handleClick = event => {
-    this.setState({
-      ...this.state,
-      counter: this.state.counter + 1
-    })
-  }
+        <Card.Body>
+          <Card.Subtitle>Number of Games Played: {props.player.games.length}</Card.Subtitle>
 
-  render() {
-  const url = `/players/${this.props.player.id}`
+          <ListGroup className="mb-2 text-muted">{gameNames}</ListGroup>
 
-  const gameNames = this.props.player.games.map( (game, index) => <ListGroup.Item key={index}>{game.name}</ListGroup.Item> )
-
-
-  return(
-    <Card bg="light" style={ {margin: '25px', flex: '0 1 24%'} }>
-      <Card.Header>{this.props.player.name}</Card.Header>
-
-      <Card.Body>
-        <Card.Subtitle>Number of Games Played: {this.props.player.games.length}</Card.Subtitle>
-
-        <ListGroup className="mb-2 text-muted">{gameNames}</ListGroup>
-
-        <Link to= {url} >View Player's Page</Link>
-        <p><button type="button" onClick={this.handleClick}>Like</button> : {this.state.counter}</p>
-
-      </Card.Body>
-
-    </Card>
-    )
-  }
+          <Link to= {url} >View Player's Page</Link>
+        </Card.Body>
+      </Card>
+      )
 }
-
 export default PlayerCard;
