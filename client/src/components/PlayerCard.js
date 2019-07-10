@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
+import { Link } from 'react-router-dom';
 
 const PlayerCard = (props) => {
   const url = `/players/${props.player.id}`
@@ -16,7 +17,7 @@ const PlayerCard = (props) => {
 
           <ListGroup className="mb-2 text-muted">{gameNames}</ListGroup>
 
-          <Card.Link href= {url} >View Player's Page</Card.Link>
+          <Link to= {url} >View Player's Page</Link>
         </Card.Body>
 
       </Card>

@@ -5,7 +5,7 @@ import OptionCard from '../components/OptionCard'
 import CardDeck from 'react-bootstrap/CardDeck'
 import { Col, Container, Row } from 'react-bootstrap/'
 import Card from 'react-bootstrap/Card'
-
+import { Link } from 'react-router-dom';
 class PlayerShow extends Component {
 
   constructor(props) {
@@ -35,7 +35,7 @@ class PlayerShow extends Component {
                       width: '200px',
                       height: '120px'
                     } }>
-                      <Card.Link href= {`/games/${option.game.id}`}>{option.game.name}</Card.Link>
+                      <Link to= {`/games/${option.game.id}`}>{option.game.name}</Link>
                     </Card>
                   </Col>
 
