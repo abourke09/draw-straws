@@ -1,7 +1,6 @@
 Notes
 =============
 
-
 Relationships
 -------------
 **Player**: name  
@@ -15,39 +14,6 @@ belongs_to :game
 **Game**: name  
 has_many :options  
 has_many :players, through: :options  
-
-To-Dos
------------
-- [X] Make show pages first
-  - [X] All Games
-  - [X] All Players
-  - [X] Individual Game
-  - [X] Individual Player
-
-- [X] Make form(s) for a new game
-  - [X] First form takes in the Game name and number of Players.
-  - [X] When first form submits, data is saved to NewGame state and second form replaces the first on the DOM.
-  - [X] Second form takes in the state from NewGame and allows the user to input Players names and Option descriptions.
-  - [X] Third form displays a table of the Players & Options and explains that the "Next"" button will begin the Draw.
-  - [X] Fourth form randomly shuffles the array of Players and alerts each when it's their turn the draw, allowing them to select an option button.
-  - [X] When each user selects an option button, it adds two new key:value pairs to each player in the playersArray, {"draw":integer} and {"description":"string"}
-  - [X] When all players have selected an option button, text is displayed saying "Click Next to finish and save this game."
-  - [X] The Game/Options/Players are then saved to the API database
-    - [X] Build out the Game controller action so that it can create the players and options all in one go
-    - [X] Check whether any players are already in the database, in which case UPDATE instead of create
-    - [X] Build a create action and reducer for the new game  
-    - [X] Update the Redux Store with the new Game and either update or create the Players array
-  - [X] The DOM then redirects to the new GameShow page
-  - [ ] Get the Nav to not re-fetch every time a navlink is clicked
-  - [ ] Better formatting on the Player Show page
-  - [ ] Make a branch that experiments with incorporating more Redux instead of using the React state for the game portion
-  - [ ] Make this Readme better
-  - [ ] Record Video walkthrough
-  - [ ] Finish writing blogpost
-  - [ ] Review React and Redux for project review questions, compile notes
-  REVIEW IS 7AM-7:45AM WEDNESDAY WITH ALICE BALBUENA!
-
-Clear and Re-Seed the database with this command: `rake db:reset`
 
 Components & Containers
 -----------------------
@@ -78,6 +44,7 @@ NavBar & Show URLs
 | `</PlayerShow>` | '/players/:id'|
 | `</GameShow>`   | '/games/:id'  |
 
+
 Requirements
 -------------------
 - [X] The code should be written in ES6 as much as possible
@@ -103,3 +70,36 @@ Requirements
 - [X] Your Rails API should handle the data persistence. You should be using fetch() within your actions to GET and POST data from your API - do not use jQuery methods.
 - [X] Your client-side application should handle the display of data with minimal data manipulation
 - [X] Your application should have some minimal styling: feel free to stick to a framework (like react-bootstrap), but if you want to write (additional) CSS yourself, go for it!
+
+To-Dos
+-----------
+- [X] Make show pages first
+  - [X] All Games
+  - [X] All Players
+  - [X] Individual Game
+  - [X] Individual Player
+
+- [X] Make form(s) for a new game
+  - [X] First form takes in the Game name and number of Players.
+  - [X] When first form submits, data is saved to NewGame state and second form replaces the first on the DOM.
+  - [X] Second form takes in the state from NewGame and allows the user to input Players names and Option descriptions.
+  - [X] Third form displays a table of the Players & Options and explains that the "Next"" button will begin the Draw.
+  - [X] Fourth form randomly shuffles the array of Players and alerts each when it's their turn the draw, allowing them to select an option button.
+  - [X] When each user selects an option button, it adds two new key:value pairs to each player in the playersArray, {"draw":integer} and {"description":"string"}
+  - [X] When all players have selected an option button, text is displayed saying "Click Next to finish and save this game."
+  - [X] The Game/Options/Players are then saved to the API database
+    - [X] Build out the Game controller action so that it can create the players and options all in one go
+    - [X] Check whether any players are already in the database, in which case UPDATE instead of create
+    - [X] Build a create action and reducer for the new game  
+    - [X] Update the Redux Store with the new Game and either update or create the Players array
+  - [X] The DOM then redirects to the new GameShow page
+  - [X] Make the Readme better
+  - [X] Record Video walkthrough
+  - [X] Finish writing blogpost
+  - [ ] Get the Nav to not re-fetch every time a navlink is clicked
+  - [ ] Better formatting on the Player Show page
+  - [ ] Make a branch that experiments with incorporating more Redux instead of using the React state for the game portion
+  - [ ] Review React and Redux for project review questions, compile notes
+  REVIEW IS 7AM-7:45AM WEDNESDAY WITH ALICE BALBUENA!
+
+Clear and Re-Seed the database with this command: `rake db:reset`
