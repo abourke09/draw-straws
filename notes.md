@@ -96,16 +96,15 @@ To-Dos
   - [X] Make the Readme better
   - [X] Record Video walkthrough
   - [X] Finish writing blogpost
-  - [ ] Get the Nav to not re-fetch every time a navlink is clicked?
-  - [ ] Better formatting on the Player Show page
-  - [ ] Make a branch that experiments with incorporating more Redux instead of using the React state for the game portion
-  - [ ] Review React and Redux for project review questions, compile notes
-    - [ ] Knowledge of Async JS with Promises (Thunk middleware)
-    - [ ] Functional Component vs Class Component
-    - [ ] Good understanding of the react/redux state flow
-    - [ ] Good understanding of state and props in React
+  - [X] Get the Nav to not re-fetch every time a navlink is clicked
+  - [ ] Better formatting on the Player Show page?
+  - [ ] Make a branch that experiments with incorporating more Redux instead of using the React state for the game portion?
+  - [X] Review React and Redux for project review questions, compile notes
+    - [X] Knowledge of Async JS with Promises (Thunk middleware)
+    - [X] Functional Component vs Class Component
+    - [X] Good understanding of the react/redux state flow
+    - [X] Good understanding of state and props in React
 
-  REVIEW IS 7AM-7:45AM WEDNESDAY WITH ALICE BALBUENA!
-  9AM
+  REVIEW IS 9AM-9:45AM WEDNESDAY WITH ALICE BALBUENA!
 
 Clear and Re-Seed the database with this command: `rake db:reset`
