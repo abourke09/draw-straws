@@ -3,7 +3,7 @@
 
 require_relative 'config/application'
 
-# Rails.application.load_tasks
+ Rails.application.load_tasks
 
 desc "Start up the application"
 task :start do
