@@ -164,6 +164,7 @@ DEPENDENCIES
   active_model_serializers
   activerecord
   bootsnap (>= 1.1.0)
+  bundler (= 2.0.1)
   byebug
   dotenv
   foreman (~> 0.82.0)
