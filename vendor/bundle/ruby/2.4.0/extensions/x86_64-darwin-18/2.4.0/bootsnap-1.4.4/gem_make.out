@@ -1,0 +1,15 @@
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+/Users/alicebourke/.rvm/rubies/ruby-2.4.5/bin/ruby -r ./siteconf20190723-29207-12mti4m.rb extconf.rb
+creating Makefile
+
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/bootsnap-1.4.4/ext/bootsnap
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20190723-29207-1sjx6d8/bootsnap

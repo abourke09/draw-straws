@@ -1,0 +1,19 @@
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/byebug-11.0.1/ext/byebug
+/Users/alicebourke/.rvm/rubies/ruby-2.4.5/bin/ruby -r ./siteconf20190723-29207-1f3hcmz.rb extconf.rb
+creating Makefile
+
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/alicebourke/Development/code/Week12- React and Redux Project/draw-straws/vendor/bundle/ruby/2.4.0/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 byebug.bundle ./.gem.20190723-29207-nq1azf/byebug
